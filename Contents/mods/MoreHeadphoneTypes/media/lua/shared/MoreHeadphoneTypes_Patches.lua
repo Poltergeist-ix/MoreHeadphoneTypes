@@ -18,14 +18,9 @@ function MoreHeadphoneTypes_Patches.patchDeviceData()
 
     local getHeadphones = mt.getHeadphones
     mt.getHeadphones = function(self,container)
-        local fullType = self:getParent():getModData().hasHeadphoneFullType
-        if fullType ~= nil then
-            local item = InventoryItemFactory.CreateItem(fullType)
-            if item ~= nil then
-                container:AddItem(item)
-            end
+        if self:getParent():getModData().hasHeadphoneFullType ~= nil then
+            container:AddItem(self:getParent():getModData().hasHeadphoneFullType)
             self:getParent():getModData().hasHeadphoneFullType = nil
-
             getHeadphones(self,InventoryItemFactory.CreateItem("Base.Garbagebag"):getInventory())
         else
             return getHeadphones(self,container)
