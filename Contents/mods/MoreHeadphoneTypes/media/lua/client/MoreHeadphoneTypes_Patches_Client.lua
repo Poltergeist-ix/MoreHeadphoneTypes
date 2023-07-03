@@ -1,5 +1,3 @@
-local Mod = require "MoreHeadphoneTypes"
-
 function MoreHeadphoneTypes_Patches.patch_RWMVolume()
 
     local verifyItem = RWMVolume.verifyItem

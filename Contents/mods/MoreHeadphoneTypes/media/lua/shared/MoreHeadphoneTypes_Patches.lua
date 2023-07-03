@@ -1,5 +1,3 @@
-local Mod = require "MoreHeadphoneTypes"
-
 MoreHeadphoneTypes_Patches = {}
 
 function MoreHeadphoneTypes_Patches.patchDeviceData()
