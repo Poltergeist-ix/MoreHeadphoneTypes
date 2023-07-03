@@ -1,0 +1,22 @@
+module Base {
+    item Earbuds
+	{
+	    DisplayCategory = Electronics,
+		Weight	=	0.1,
+		Type	=	Normal,
+		DisplayName	=	Earbuds,
+		Icon	=	Earbuds,
+		WorldStaticModel = EarBuds,
+		Tags = Headphones,
+	}
+    item Headphones
+	{
+	    DisplayCategory = Electronics,
+		Weight	=	0.2,
+		Type	=	Normal,
+		DisplayName	=	Headphones,
+		Icon	=	Headphones,
+		WorldStaticModel = HeadPhones,
+		Tags = Headphones,
+	}
+}

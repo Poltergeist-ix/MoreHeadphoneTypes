@@ -5,30 +5,30 @@ MoreHeadphoneTypes_Patches = {}
 function MoreHeadphoneTypes_Patches.patchDeviceData()
     local mt = __classmetatables[DeviceData.class].__index
 
-    -- local addHeadPhones = mt.addHeadphones
+    local addHeadphones = mt.addHeadphones
     mt.addHeadphones = function(self,item)
-        --TODO: check if need check headphoneType, container
-        if Mod.fullTypeMap[item:getFullType()] then
-            ISRemoveItemTool.removeItem(item,getPlayer())
-            self:setHeadphoneType(Mod.fullTypeMap[item:getFullType()])
-            -- self:transmitDeviceDataState(6)
-        -- else
-        --     return addHeadPhones(self,item)
+        if item:hasTag("Headphones") then
+            local container = item:getContainer() or InventoryItemFactory.CreateItem("Base.Garbagebag"):getInventory()
+            addHeadphones(self,container:AddItem("Base.Earbuds"))
+
+            self:getParent():getModData().hasHeadphoneFullType = item:getFullType()
+            pcall(ISRemoveItemTool.removeItem,item,getPlayer())
         end
     end
 
-    -- local getHeadphones = mt.getHeadphones
+    local getHeadphones = mt.getHeadphones
     mt.getHeadphones = function(self,container)
-        if self:getHeadphoneType() >= 0 then
-            local fullType = Mod.integerMap[self:getHeadphoneType()]
-            if fullType ~= nil then
-                local item = InventoryItemFactory.CreateItem(fullType)
-                if item ~= nil then
-                    container:AddItem(item)
-                end
+        local fullType = self:getParent():getModData().hasHeadphoneFullType
+        if fullType ~= nil then
+            local item = InventoryItemFactory.CreateItem(fullType)
+            if item ~= nil then
+                container:AddItem(item)
             end
-            self:setHeadphoneType(-1)
-            -- self:transmitDeviceDataState(6)
+            self:getParent():getModData().hasHeadphoneFullType = nil
+
+            getHeadphones(self,InventoryItemFactory.CreateItem("Base.Garbagebag"):getInventory())
+        else
+            return getHeadphones(self,container)
         end
     end
 
