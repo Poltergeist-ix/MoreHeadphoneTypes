@@ -1,0 +1,12 @@
+version=1
+id=2998526012
+title=More Headphone Types Support
+description=Makes it easier to add more usable headphones to the game, made for v41.78. Any item with tag "Headphones" can be used as headphones.
+description=
+description=[code][url=https://discord.gg/SReMnbV4V7][img]https://raw.githubusercontent.com/Chuckleberry-Finn/chuckImages/main/PZmodCommBanner2.png[/img][/url]
+description=[url=https://ko-fi.com/P5P6JASON][img]https://raw.githubusercontent.com/Poltergeistzx/Project-Zomboid/main/images/Ko-fi-01.png[/img][/url][/code]
+description=
+description=Workshop ID: 2998526012
+description=Mod ID: MoreHeadphoneTypes
+tags=Build 41
+visibility=public

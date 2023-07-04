@@ -17,7 +17,7 @@ local volumeElementPatch = function(o)
                 self.prevHeadphoneType = self.deviceData:getParent():getModData().hasHeadphoneFullType
             end
             self.itemDropBox:setStoredItemFake(self.storedItemFakeTexture)
-            self.itemDropBox:setStoredItemFake(getScriptManager():getItem(self.deviceData:getParent():getModData().hasHeadphoneFullType):getNormalTexture()) --Fixme
+            -- self.itemDropBox:setStoredItemFake(getScriptManager():getItem(self.deviceData:getParent():getModData().hasHeadphoneFullType):getNormalTexture()) --Fixme
         end
     end
 

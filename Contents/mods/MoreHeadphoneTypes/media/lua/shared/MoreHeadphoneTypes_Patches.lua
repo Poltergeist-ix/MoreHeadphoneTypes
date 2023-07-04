@@ -12,7 +12,7 @@ function MoreHeadphoneTypes_Patches.patchDeviceData()
             local container = item:getContainer() or InventoryItemFactory.CreateItem("Base.Garbagebag"):getInventory()
             addHeadphones(self,container:AddItem("Base.Earbuds"))
             Util.setHeadphonesData(self:getParent(),item:getFullType())
-            pcall(ISRemoveItemTool.removeItem,item,getPlayer())
+            pcall(ISRemoveItemTool.removeItem,item,getPlayer()) --FIXME
         end
     end
 

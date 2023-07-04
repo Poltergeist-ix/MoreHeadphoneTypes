@@ -32,13 +32,12 @@ end
 
 function Util.setHeadphonesDataFromArgs(args)
     -- print("zxLog: ",args.type,args.fullType)
-    
+
     local dataObject
     if args.type == "playerInv" then
         local player = getPlayerByOnlineID(args.onlineID)
         if not player then return end
         dataObject = player:getInventory():getItemWithID(args.id)
-        if not dataObject then return end
     elseif args.type == "IsoObject" then
         local square = getSquare(args.x,args.y,args.z)
         if not square or square:getObjects():size() > args.index then return end
